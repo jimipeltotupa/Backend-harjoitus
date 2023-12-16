@@ -2,22 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Book</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lisää uusi resepti</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 56px;
+        }
+
+        header {
+            background-color: #343a40;
+            padding: 20px 0;
+            color: white;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #e9ecef;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #343a40;
+            padding: 10px 0;
+            color: white;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Update book</h1>
-    <form method="POST" action="/updateBook">
-        <label for="_id">Id<input type="hidden" name="_id" id="_id"</label>
-        <label for="title">Title<input type="text" name="title" id="title"</label>
-        <label for="author">Author<input type="text" name="author" id="author"</label>
-        <label for="publisher">Publisher<input type="text" name="publisher" id="publisher"</label>
-        <label for="read">Read?<input type="boolean" name="read" id="read"</label>
-        <input type="submit" value="Update">
+
+<header>
+    <h1>Lisää uusi resepti</h1>
+</header>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">Reseptit</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Etusivu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reseptit.html">Reseptit</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="uusiresepti.html">Lisää uusi resepti</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="container">
+    <form method="POST" action="/newRecipe">
+        <div class="form-group">
+            <label for="nimi">Nimi</label>
+            <input type="text" class="form-control" id="nimi" name="nimi" required>
+        </div>
+        <div class="form-group">
+            <label for="ruokalaji">Ruokalaji</label>
+            <input type="text" class="form-control" id="ruokalaji" name="ruokalaji" required>
+        </div>
+        <div class="form-group">
+            <label for="valmistusaika">Valmistusaika</label>
+            <input type="text" class="form-control" id="valmistusaika" name="valmistusaika" required>
+        </div>
+        <div class="form-group">
+            <label for="ohjeet">Ohjeet</label>
+            <textarea class="form-control" id="ohjeet" name="ohjeet" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Lisää resepti</button>
     </form>
-    <script src="update.js" async defer></script>
-    <script src="front.js" async defer></script>
+</section>
+
+<footer class="footer mt-auto py-3">
+    <div class="container">
+        <p class="text-white">© 2023 Reseptitietokanta</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
