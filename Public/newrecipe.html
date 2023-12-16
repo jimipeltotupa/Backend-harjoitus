@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Add a new book</h1>
+    <form method="POST" action="/newBook">
+        <label for="title">Title<input type="text" name="title" id="title"</label>
+        <label for="author">Author<input type="text" name="author" id="author"</label>
+        <label for="publisher">Publisher<input type="text" name="publisher" id="publisher"</label>
+        <label for="read">Read?<input type="boolean" name="read" id="read"</label>
+        <input type="submit" value="Add">
+    </form>
+    <script src="front.js" async defer></script>
+</body>
+</html>
