@@ -76,5 +76,4 @@ function createForm(resepti, action) {
   return newCell;
 }
 
-// Kutsu showAllRecipes()-funktiota jossain vaiheessa, jotta kaikki reseptit näkyvät sivulla
 showAllRecipes();
