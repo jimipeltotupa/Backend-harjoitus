@@ -34,7 +34,7 @@ db.once('open', function () {
     console.log('Tietokantayhteys avattu');
 });
 
-// reseptien hakemiseksi
+// Kirjoita get-funktio reseptien hakemiseksi
 app.get('/reseptit', function (req, res) {
     // Hae reseptit tietokannasta
     recipe.find(req.query, function (err, result) {
@@ -48,6 +48,7 @@ app.get('/reseptit', function (req, res) {
 
 // Reseptin lisäys post-funktio
 app.post('/newRecipe', function (req, res) {
+    // Varmista, ettei ole ID:tä ja poista se, jos on
     delete req.body._id;
     // Lisää collectioniin uusi resepti
     db.collection('Reseptit').insertOne(req.body);
@@ -56,6 +57,7 @@ app.post('/newRecipe', function (req, res) {
 
 // Poistofunktio
 app.post('/deleteRecipe', function (req, res) {
+    // Poistetaan collectionista resepti
     db.collection('Reseptit').deleteOne({ _id: new mongodb.ObjectId(req.body._id) }, function (err, result) {
         if (err) {
             res.send('Error deleting with following data: ' + err);
@@ -65,7 +67,9 @@ app.post('/deleteRecipe', function (req, res) {
     });
 });
 
+// Päivitysfunktio
 app.post('/updateRecipe', function (req, res) {
+    // Päivitetään collectionista resepti. Kolme parametria: ID, mitä päivitetään ja funktio virheenkäsittelyyn ja palautteeseen.
     db.collection('Reseptit').updateOne(
         { _id: new mongodb.ObjectId(req.body._id) },
         { $set: { nimi: req.body.nimi, ruokalaji: req.body.ruokalaji, valmistusaika: req.body.valmistusaika } },
